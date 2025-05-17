@@ -67,3 +67,68 @@ int main(){
 
     return 0;
 }
+
+//////////////////////
+
+// search for a specific value
+
+// we search in the table if there has been 
+// an action > to a specific value
+
+#include <stdio.h>
+#include <stdbool.h>
+
+#define MAX_THEATERS 20
+#define END_SEQ -1.0
+
+typedef struct {
+    float collect[MAX_THEATERS];
+    int numTheaters;
+} tTheater;
+
+void fillTable(tTheater *movieTheater){
+    float temp;
+    movieTheater->numTheaters = 0;
+
+    scanf("%f", &temp);
+    while (temp != END_SEQ){
+        movieTheater->collect[movieTheater->numTheaters];
+        movieTheater->numTheaters = movieTheater->numTheaters+1:
+        scanf("%f", &temp);
+    }
+}
+
+void searchValue(tTheater movieTheater, float value, int *position){
+    int i;
+    bool found;
+
+    //variable initialization
+    i = 0;
+    found = false;
+    *position = -1;
+    // while there are still elements in the table and
+    // the value has not been found
+    while(i<movieTheater.numTheaters && !found){
+        if(movieTheater.collect[i] >=value){
+            found=true;
+        } else{
+            i++;
+        }
+    }
+    if(found){
+        *position = i;
+    }
+}
+
+int main(){
+    tTheater movieTheater;
+    float value;
+    int position;
+
+    fillTable(&movieTheater);
+    scanf("%f", &value);
+    searchValue(movieTheater, value, &position);
+    print("%d", position);
+
+    return 0;
+}
